@@ -17,11 +17,11 @@ The Create new statement button empties local storage to create a new statement 
 Only add Continue existing statement to page if local storage has content in it? Flag? Make it a secondary button.
 
 <div class="button-group">
-  <a href="/background" class="ds_button" onclick="emptyStorage();">
+  <a href="background" class="ds_button" onclick="emptyStorage();">
     Create new statement
   </a>
 
-  <a href="/background" class="ds_button  ds_button--secondary">
+  <a href="background" class="ds_button  ds_button--secondary">
     Continue existing statement
   </a>
 </div>
