@@ -60,7 +60,7 @@ function reloadTable(id) {
       var cell2 = row.insertCell(1);
 
       cell1.innerHTML = localStorage.getItem(localStorage.key(i));
-      cell2.innerHTML = "<button class='ds_button ds_button--cancel ds_button--fixed ds_button--has-icon' onclick='removeFromTable(this);'>Remove<svg class='ds_icon' aria-hidden='true' role='img'><use href='/public/images/icons.stack.svg#close'></use></svg></button>";
+      cell2.innerHTML = "<button class='ds_button ds_button--cancel ds_button--fixed ds_button--has-icon' onclick='removeFromTable(this);'>Remove<svg class='ds_icon' aria-hidden='true' role='img'><use href='public/images/icons.stack.svg#close'></use></svg></button>";
 
       if (table.rows.length > 1) {
         table.setAttribute("style", "display:block;");
@@ -120,7 +120,7 @@ function submit(id) {
   var cell2 = row.insertCell(1);
 
   cell1.innerHTML = valueToStore;
-  cell2.innerHTML = "<button class='ds_button ds_button--cancel ds_button--fixed ds_button--has-icon' onclick='removeFromTable(this);'>Remove<svg class='ds_icon' aria-hidden='true' role='img'><use href='/public/images/icons.stack.svg#close'></use></svg></button>"
+  cell2.innerHTML = "<button class='ds_button ds_button--cancel ds_button--fixed ds_button--has-icon' onclick='removeFromTable(this);'>Remove<svg class='ds_icon' aria-hidden='true' role='img'><use href='public/images/icons.stack.svg#close'></use></svg></button>"
 
   const myNode = document.getElementById(id);
   myNode.remove();
@@ -220,7 +220,7 @@ function submitNonCompliant(id) {
   cell1.innerHTML = issueValue;
   cell2.innerHTML = workaroundsValue;
   cell3.innerHTML = resolvedByValue;
-  cell4.innerHTML = "<button class='ds_button ds_button--cancel ds_button--fixed ds_button--has-icon' onclick='removeFromTable(this);'>Remove<svg class='ds_icon' aria-hidden='true' role='img'><use href='/public/images/icons.stack.svg#close'></use></svg></button>"
+  cell4.innerHTML = "<button class='ds_button ds_button--cancel ds_button--fixed ds_button--has-icon' onclick='removeFromTable(this);'>Remove<svg class='ds_icon' aria-hidden='true' role='img'><use href='public/images/icons.stack.svg#close'></use></svg></button>"
 
   const myNode = document.getElementById(id);
   myNode.remove();
@@ -245,7 +245,7 @@ function reloadTableNonCompliant(id) {
       cell1.innerHTML = issueObject['issueValue'];
       cell2.innerHTML = issueObject['workaroundsValue'];
       cell3.innerHTML = issueObject['resolvedByValue'];
-      cell4.innerHTML = "<button class='ds_button ds_button--cancel ds_button--fixed ds_button--has-icon' onclick='removeFromTable(this);'>Remove<svg class='ds_icon' aria-hidden='true' role='img'><use href='/public/images/icons.stack.svg#close'></use></svg></button>";
+      cell4.innerHTML = "<button class='ds_button ds_button--cancel ds_button--fixed ds_button--has-icon' onclick='removeFromTable(this);'>Remove<svg class='ds_icon' aria-hidden='true' role='img'><use href='public/images/icons.stack.svg#close'></use></svg></button>";
 
       if (table.rows.length > 1) {
         table.setAttribute("style", "display:block;");
