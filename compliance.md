@@ -2,9 +2,6 @@
 
 title: Compliance
 layout: default
-include_nav: true
-prev: improving-accessibility
-next: non-compliant
 
 ---
 

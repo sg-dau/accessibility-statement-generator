@@ -2,9 +2,6 @@
 
 title: Feedback
 layout: default
-include_nav: true
-prev: background
-next: improving-accessibility
 
 ---
 

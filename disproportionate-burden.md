@@ -2,9 +2,6 @@
 
 title: Disproportionate burden
 layout: default
-include_nav: true
-prev: non-compliant
-next: outside-scope
 
 ---
 

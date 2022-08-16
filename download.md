@@ -2,8 +2,6 @@
 
 title: Download
 layout: default
-include_nav: true
-prev: outside-scope
 
 ---
 

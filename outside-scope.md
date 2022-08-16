@@ -2,9 +2,6 @@
 
 title: Not within scope of regulations
 layout: default
-include_nav: true
-prev: disproportionate-burden
-next: download
 
 ---
 

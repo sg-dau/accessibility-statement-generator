@@ -1,7 +1,6 @@
 ---
 
 layout: default
-include_nav: false
 
 ---
 

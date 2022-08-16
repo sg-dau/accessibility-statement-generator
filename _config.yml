@@ -1,0 +1,17 @@
+sections:
+  - text: Background information
+    url: background
+  - text: Feedback
+    url: feedback
+  - text: Improving accessibility
+    url: improving-accessibility
+  - text: Compliance
+    url: compliance
+  - text: Non-compliant content
+    url: non-compliant
+  - text: Disproportionate burden
+    url: disproportionate-burden
+  - text: Outside scope
+    url: outside-scope
+  - text: Download statement
+    url: download

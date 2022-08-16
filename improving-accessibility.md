@@ -2,9 +2,6 @@
 
 title: Improving accessibility
 layout: default
-include_nav: true
-prev: feedback
-next: compliance
 
 ---
 

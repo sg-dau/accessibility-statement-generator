@@ -2,9 +2,6 @@
 
 title: Background Information
 layout: default
-include_nav: true
-prev: index
-next: feedback
 
 ---
 

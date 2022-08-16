@@ -1,15 +1,30 @@
-<div class="button-group">
-  {% if page.prev %}
-  <a href="{{ page.prev }}" class="ds_button  ds_button--cancel  ds_button--has-icon  ds_button--has-icon--left">
-    <svg class="ds_icon" aria-hidden="true" role="img"><use href="public/images/icons.stack.svg#chevron_left"></use></svg>
-    Back
-  </a>
-  {% endif %}
+{% assign current = page.name | split: "." | first %}
+{% assign max = site.sections.size | minus: 1 %}
 
-  {% if page.next %}
-  <a href="{{page.next}}" class="ds_button  ds_button--has-icon">
-    Next
-    <svg class="ds_icon" aria-hidden="true" role="img"><use href="public/images/icons.stack.svg#chevron_right"></use></svg>
-  </a>
-  {% endif %}
+<div class="button-group">
+  {% for i in (0 .. max) %}
+    {% if site.sections[i].url == current %}
+      {% assign prev = i | minus: 1 %}
+      {% assign next = i | plus: 1 %}
+
+      {% if prev >= 0 %}
+        <a href="{{ site.sections[prev].url }}" class="ds_button ds_button--cancel ds_button--has-icon  ds_button--has-icon--left">
+          <svg class="ds_icon" aria-hidden="true" role="img"><use href="public/images/icons.stack.svg#chevron_left"></use></svg>
+          Back
+        </a>
+      {% else %}
+        <a href="index" class="ds_button ds_button--cancel ds_button--has-icon  ds_button--has-icon--left">
+          <svg class="ds_icon" aria-hidden="true" role="img"><use href="public/images/icons.stack.svg#chevron_left"></use></svg>
+          Back
+        </a>
+      {% endif %}
+      
+      {% if next <= max %}
+        <a href="{{ site.sections[next].url}}" class="ds_button  ds_button--has-icon">
+          Next
+          <svg class="ds_icon" aria-hidden="true" role="img"><use href="public/images/icons.stack.svg#chevron_right"></use></svg>
+        </a>
+      {% endif %}
+    {% endif %}
+  {% endfor %}
 </div>

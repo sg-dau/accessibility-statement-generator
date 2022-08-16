@@ -2,9 +2,6 @@
 
 title: Non-compliant content
 layout: default
-include_nav: true
-prev: compliance
-next: disproportionate-burden
 
 ---
 
