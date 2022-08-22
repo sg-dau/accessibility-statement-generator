@@ -19,53 +19,43 @@ function storeRadio(id, value) {
 //loops through the array of ids passed to it
 //sets the value on the page equal to the value in local storage
 function reload(ids) {
-  for (let id of ids) {
-    if (localStorage.getItem(id)) {
-      document.getElementById(id).value = localStorage.getItem(id);
-    }
-  }
-}
-
-//id passed here will be xyz-query
-//this gets rid of the "query"(slice(0, -5)) and replaces it with the value in local storage
-//then sets that radio button to selected
-function reloadRadio(ids) {
-  for (let id of ids) {
-    if (localStorage.getItem(id)) {
-      document.getElementById(id.slice(0, -5) + localStorage.getItem(id)).checked = true;
-    }
-  }
-}
-
-//ticks checkboxes that are stored as true in local storage
-function reloadCheckbox(ids) {
-  for (let id of ids) {
-    if (localStorage.getItem(id) === 'true') {
-      document.getElementById(id).checked = true;
+  let formElements = document.querySelectorAll("input, textarea, select, table");
+  for (let formElement of formElements) {
+    if(localStorage.getItem(formElement.id)) {
+      if(localStorage.getItem(formElement.id) === 'true') {
+        document.getElementById(formElement.id).checked = true;
+      } else {
+        document.getElementById(formElement.id).value = localStorage.getItem(formElement.id);
+      }
+    } else if(localStorage.getItem('counter-' + formElement.id.slice(6))){
+      reloadTable(formElement.id.slice(6));
+    } else if(localStorage.getItem(formElement.name)) {
+      document.getElementById(formElement.name.slice(0, -5) + localStorage.getItem(formElement.name)).checked = true;
     }
   }
 }
 
 //used on the outside-scope and disproportionate-burden pages
-//loops through local storgae and refills tables on page
+//loops through local storage and refills tables on page
 function reloadTable(id) {
-  for (let i = 0; i < localStorage.length; i++) {
+  let table = document.getElementById("table-" + id);
+  for (let i = 0; i < localStorage.getItem('counter-'+id); i++) {
+    if(localStorage.getItem(id+"-"+i)) {
+    let row = table.insertRow();
+    row.setAttribute("id", id + "-" + i);
 
-    if (localStorage.key(i).startsWith(id)) {
-      var table = document.getElementById("table-" + id);
-      var row = table.insertRow(1);
-      row.setAttribute("id", localStorage.key(i));
-
-      var cell1 = row.insertCell(0);
-      var cell2 = row.insertCell(1);
-
-      cell1.innerHTML = localStorage.getItem(localStorage.key(i));
-      cell2.innerHTML = "<button class='ds_button ds_button--cancel ds_button--fixed ds_button--has-icon' onclick='removeFromTable(this);'>Remove<svg class='ds_icon' aria-hidden='true' role='img'><use href='public/images/icons.stack.svg#close'></use></svg></button>";
-
-      if (table.rows.length > 1) {
-        table.setAttribute("style", "display:block;");
+      let content = JSON.parse(localStorage.getItem(id+"-"+i));
+      for(let contentKey of Object.keys(content)) {
+        let newCell = row.insertCell();
+        newCell.innerHTML = content[contentKey];
       }
+
+      let actionsCell = row.insertCell();
+      actionsCell.innerHTML = "<button class='ds_button ds_button--cancel ds_button--fixed ds_button--has-icon' onclick='removeFromTable(this);'>Remove<svg class='ds_icon' aria-hidden='true' role='img'><use href='public/images/icons.stack.svg#close'></use></svg></button>";
     }
+  }
+  if (table.rows.length > 1) {
+    table.setAttribute("style", "display:block;");
   }
 }
 
@@ -101,7 +91,7 @@ function addOne(id) {
 function submit(id) {
   var inputId = id.substring(4);
   var valueToStore = document.getElementById(inputId).value;
-  localStorage.setItem(inputId, valueToStore);
+  localStorage.setItem(inputId, JSON.stringify({'value': valueToStore}));
 
   //regex matches a "-" then digits at the end of a string and replaces them with nothing
   //to get the correct table id
@@ -225,31 +215,4 @@ function submitNonCompliant(id) {
   const myNode = document.getElementById(id);
   myNode.remove();
 
-}
-
-function reloadTableNonCompliant(id) {
-  for (let i = 0; i < localStorage.length; i++) {
-
-    if (localStorage.key(i).startsWith(id)) {
-      var table = document.getElementById("table-" + id);
-      var row = table.insertRow(1);
-      row.setAttribute("id", localStorage.key(i));
-
-      var cell1 = row.insertCell(0);
-      var cell2 = row.insertCell(1);
-      var cell3 = row.insertCell(2);
-      var cell4 = row.insertCell(3);
-
-      var issueObject = JSON.parse(localStorage.getItem(localStorage.key(i)));
-
-      cell1.innerHTML = issueObject['issueValue'];
-      cell2.innerHTML = issueObject['workaroundsValue'];
-      cell3.innerHTML = issueObject['resolvedByValue'];
-      cell4.innerHTML = "<button class='ds_button ds_button--cancel ds_button--fixed ds_button--has-icon' onclick='removeFromTable(this);'>Remove<svg class='ds_icon' aria-hidden='true' role='img'><use href='public/images/icons.stack.svg#close'></use></svg></button>";
-
-      if (table.rows.length > 1) {
-        table.setAttribute("style", "display:block;");
-      }
-    }
-  }
 }
