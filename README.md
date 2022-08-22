@@ -40,3 +40,7 @@ There are three store functions: store(id), storeCheckbox(id), and storeRadio(id
       </div>
   </div>
 ```
+
+## Thanks
+
+Huge thanks to [Ben Coke](https://github.com/BenCoke) who created the foundations for this work as a summer intern with the Digital Accessibility and Usability Team in 2022.
