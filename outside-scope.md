@@ -7,7 +7,7 @@ layout: default
 
 The regulations do not apply to the following content of a website or mobile application:
 
-* PDFs or other office file formats published before 23 September 2018 - unless they're essential to providing a service.
+* PDFs or other office file formats published before 23 September 2018 - unless they're essential to using a service.
 * Pre-recorded audio and video published before 23 September 2020.
 * Live audio and video.
 * Maps - as long as essential information is provided in an accessible format such as an address.
