@@ -19,19 +19,24 @@ function storeRadio(id, value) {
 //loops through the array of ids passed to it
 //sets the value on the page equal to the value in local storage
 function reload(ids) {
-  let formElements = document.querySelectorAll("input, textarea, select, table");
-  for (let formElement of formElements) {
-    if(localStorage.getItem(formElement.id)) {
-      if(localStorage.getItem(formElement.id) === 'true') {
-        document.getElementById(formElement.id).checked = true;
-      } else {
-        document.getElementById(formElement.id).value = localStorage.getItem(formElement.id);
+  if(localStorage.length>0){
+    let formElements = document.querySelectorAll("input, textarea, select, table");
+    for (let formElement of formElements) {
+      if(localStorage.getItem(formElement.id)) {
+        if(localStorage.getItem(formElement.id) === 'true') {
+          document.getElementById(formElement.id).checked = true;
+        } else {
+          document.getElementById(formElement.id).value = localStorage.getItem(formElement.id);
+        }
+      } else if(localStorage.getItem('counter-' + formElement.id.slice(6))){
+        reloadTable(formElement.id.slice(6));
+      } else if(localStorage.getItem(formElement.name)) {
+        document.getElementById(formElement.name.slice(0, -5) + localStorage.getItem(formElement.name)).checked = true;
       }
-    } else if(localStorage.getItem('counter-' + formElement.id.slice(6))){
-      reloadTable(formElement.id.slice(6));
-    } else if(localStorage.getItem(formElement.name)) {
-      document.getElementById(formElement.name.slice(0, -5) + localStorage.getItem(formElement.name)).checked = true;
     }
+  } else {
+    // Remove the continue button
+    document.getElementById('continue').remove();
   }
 }
 

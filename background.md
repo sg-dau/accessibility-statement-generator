@@ -15,7 +15,7 @@ layout: default
 </div>
 <div>
   <label class="ds_label" for="website-url">What is your website's URL?</label>
-  <p id="website-url-hint" class="ds_hint-text">e.g. https://www.google.com</p>
+  <p id="website-url-hint" class="ds_hint-text">e.g. https://gov.scot</p>
   <input class="ds_input  ds_input--fluid-half" type="text" id="website-url" aria-describedby="website-url-hint" onchange="store('website-url');"/>
 </div>
 <div data-module="ds-datepicker" class="ds_datepicker">

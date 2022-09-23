@@ -5,8 +5,6 @@ layout: default
 
 ---
 
-2.0 vs 2.1?
-
 <form>
   <div class="ds_question">
     <fieldset id="compliance-query">
@@ -23,7 +21,7 @@ layout: default
         </div>
         <div class="ds_radio">
           <input id="compliance-not" value="not" name="compliance-query" class="ds_radio__input" type="radio" onchange="storeRadio('compliance-query', 'not');"/>
-          <label for="compliance-not" class="ds_radio__label">Not</label>
+          <label for="compliance-not" class="ds_radio__label">Not at all</label>
         </div>
       </div>
     </fieldset>
